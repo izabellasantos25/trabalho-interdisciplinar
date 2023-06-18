@@ -1,4 +1,4 @@
-const db = require("../db");
+const db = require("../back-end/db");
 
 class Produto {
   static async select() {
