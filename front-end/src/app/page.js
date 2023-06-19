@@ -2,7 +2,7 @@
 import styles from './page.module.css'
 
 export default async function Home() {
-  const req = await fetch("http://localhost:3003/produto", {
+  const req = await fetch("http://localhost:3003/produtos", {
     cache: "no-cache"
   });
 
