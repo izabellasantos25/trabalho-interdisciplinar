@@ -39,11 +39,11 @@ export default function Cadastro() {
 
             <form  className={styles.form} onSubmit={cadastrar}>
 
-               <div className={styles.h3}>Cadastre</div> 
+               <div className={styles.h3}>Cadastre
 
-               <div className={styles.voltar}>
                 <a className={styles.a} href='/'>Voltar</a>
-               </div>
+
+               </div> 
 
                 <label className={styles.label} for="titulo">Título</label>
                 <input className={styles.input} type="text" placeholder='Informe o título' nome="titulo" onChange={e => setTitulo(e.target.value)} />

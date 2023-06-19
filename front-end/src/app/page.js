@@ -1,6 +1,5 @@
 "use client"
 import styles from './page.module.css'
-import Link from 'next/link';
 
 export default async function Home() {
   const req = await fetch("http://localhost:3003/produto", {
@@ -12,10 +11,10 @@ export default async function Home() {
 
   return (
 
-    <div className={styles.body}> 
+    <div> 
 
     <div className={styles.menu}>
-    <a className={styles.link} href="/cadastro" className='voltar'> CADASTRAR </a>
+    <a className={styles.link} href="/cadastro"> CADASTRAR </a>
     </div>
 
     <div className={styles.main}>
@@ -24,9 +23,9 @@ export default async function Home() {
 
         <div className={styles.group} key={produto.id}>
 
-          <img src={produto.imagem}></img>
-          <p className={styles.p}>{produto.titulo}</p>
-          <p className={styles.p}>{produto.preco}</p>
+          <img src={produto.imagem} width={300} height={450}></img>
+          <div className={styles.texto}>{produto.titulo}</div>
+          <div className={styles.texto}>{produto.preco}</div>
           <a className={styles.link} href={`/produto/${produto.id}`}>Ver mais</a>
 
         </div>

@@ -1,5 +1,5 @@
 'use client'
-import styles from '../page.module.css'
+import styles from './../../page.module.css'
 import { useRouter } from "next/navigation";
 
 export default async function Produto({ params }) {
@@ -8,7 +8,7 @@ export default async function Produto({ params }) {
 
     const idJson = JSON.stringify(id);
 
-    const req = await fetch("http://localhost:3003/produtos", {
+    const req = await fetch("http://localhost:3003/produto", {
         method: "POST",
         cache: "no-cache",
         headers: { 'content-type': 'application/json' },
@@ -31,22 +31,28 @@ export default async function Produto({ params }) {
         }
     }
     return (
-        <div className={styles.body}>
 
-            <div className={styles.group}>
+    <div> 
+
+        <div className={styles.menu2}>
+        <a className={styles.link2} href="/cadastro"> CADASTRAR </a>
+        <a className={styles.link2} href="/"> HOME </a>
+        </div>
+
+            <div className={styles.group2}>
 
               <div className={styles.card}>
 
-                <p>{produto.imagem}</p>
-                <p>{produto.titulo}</p>
-                <p>{produto.descricao}</p>
-                <button onClick={e => e.preventDefault(remover())}>Deletar</button>
+                <img className={styles.imagem} src={produto.imagem} width={300} height={450}></img>
+                <div className={styles.texto}>{produto.titulo}</div>
+                <div className={styles.texto}>{produto.descricao}</div>
+                <button className={styles.botao2} onClick={e => e.preventDefault(remover())}>Deletar</button>
               
               </div>
 
             </div>
 
-        </div>
+    </div>
 
     )
 }
