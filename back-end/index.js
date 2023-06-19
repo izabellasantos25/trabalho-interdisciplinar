@@ -11,10 +11,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/produtos', async function(req, res){
+app.get('/produto', async function(req, res){
   try {
-    var produtos = await Produto.select();
-    res.json(produtos.rows);
+    var produto = await Produto.select();
+    res.json(produto.rows);
   } catch (error) {
     console.error('Erro ao buscar produtos:', error);
     res.status(500).json({ error: 'Ocorreu um erro ao buscar produtos' });
@@ -23,26 +23,27 @@ app.get('/produtos', async function(req, res){
 
 app.post('/produtos', async function(req, res){
   try {
-    var produto = await Produto.insert(req.body.id);
+    var produto = await Produto.selectOne(req.body.id);
     res.json(produto.rows[0]);
   } catch (error) {
-    console.error('Erro ao inserir produto:', error);
-    res.status(500).json({ error: 'Ocorreu um erro ao inserir produto' });
+    console.error('Erro ao buscar produtos:', error);
+    res.status(500).json({ error: 'Ocorreu um erro ao buscar produtos' });
   }
 });
 
-app.put('/produto', async function(req, res){
-  try {
-    var produto = await Produto.update(req.body.id, req.body);
-    res.json(produto.rows);
-  } catch (error) {
-    console.error('Erro ao atualizar produto:', error);
-    res.status(500).json({ error: 'Ocorreu um erro ao atualizar produto' });
+app.post('/produto', async function(req,res){
+  try{
+    var produto = req.body
+    var produto = await Produto.insert(produto);
+    res.json(produto.rows)
+  }catch(error){
+    console.log("error")
   }
-});
+})
 
-app.delete('/produtos', async function(req, res){
+app.delete('/produto', async function(req, res){
   try {
+    console.log(req.body.id)
     var produto = await Produto.delete(req.body.id);
     res.json(produto.rows);
   } catch (error) {
@@ -51,6 +52,7 @@ app.delete('/produtos', async function(req, res){
   }
 });
 
-app.listen(3000, function() {
-  console.log('App de Exemplo escutando na porta 3000!')
+
+app.listen(3003, function() {
+  console.log(`app de Exemplo escutando na porta! ${3003}`)
 });

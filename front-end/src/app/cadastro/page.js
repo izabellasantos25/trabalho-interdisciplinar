@@ -5,52 +5,70 @@ import { useRouter } from 'next/navigation'
 
 export default function Cadastro() {
     const route = useRouter();
-    const [nome, setNome] = useState();
-    const [idade, setIdade] = useState();
-    const [uf, setUF] = useState();
+    const [titulo, setTitulo] = useState();
+    const [dataCadastro, setDataCadastro] = useState();
+    const [preco, setPreco] = useState();
+    const [descricao, setDescricao] = useState();
+    const [imagem, setImagem] = useState();
 
     const cadastrar = (e) => {
         e.preventDefault()
         
-        const pessoa = {
-            nome: nome,
-            idade: idade,
-            uf: uf
+        const produto = {
+            titulo: titulo,
+            dataCadastro: dataCadastro,
+            preco: preco,
+            descricao: descricao,
+            imagem: imagem
         }
-        const pessoaJson = JSON.stringify(pessoa);
-        fetch("http://localhost:3003/pessoa", {
+        const produtoJson = JSON.stringify(produto);
+        fetch("http://localhost:3003/produto", {
             method: "POST",
             headers: { "content-Type": "application/json" },
-            body: pessoaJson
+            body: produtoJson
         }).then(function(){ route.push("/")}).catch(()=> console.log("Não foi possível cadastrar!"))
     }
 
     return (
+        <div className={styles.body}>
         <div className={styles.main}>
             <form  onSubmit={cadastrar}>
-                <input
+                <input className={styles.input}
                     type="text"
-                    placeholder='Nome:'
-                    nome="nome"
-                    onChange={e => setNome(e.target.value)}
-                /><br/>
-                <input
+                    placeholder='Titulo do Produto:'
+                    nome="titulo"
+                    onChange={e => setTitulo(e.target.value)}
+                />
+                <input className={styles.input}
                     type="text"
-                    placeholder='Idade:'
-                    nome="idade"
-                    onChange={e => setIdade(e.target.value)}
-                /><br/>
-                <input
+                    placeholder='Data do Cadastro:'
+                    nome="dataCadastro"
+                    onChange={e => setDataCadastro(e.target.value)}
+                />
+                <input className={styles.input}
                     type="text"
-                    placeholder='UF:'
-                    nome="uf"
-                    onChange={e => setUF(e.target.value)}
-                /><br/>
-                <button type='submit'>Cadastrar</button>
-                <div>
-                    <a href='/'>Voltar</a>
-                </div>
+                    placeholder='Preço do Produto:'
+                    nome="preco"
+                    onChange={e => setPreco(e.target.value)}
+                />
+
+                <input className={styles.input}
+                    type="text"
+                    placeholder='Descrição do Produto:'
+                    nome="descricao"
+                    onChange={e => setDescricao(e.target.value)}
+                />
+
+                <input className={styles.input}
+                    type="text"
+                    placeholder='Link da Imagem:'
+                    nome="imagem"
+                    onChange={e => setImagem(e.target.value)}
+                />
+                <div className={styles.space}></div>
+                <button className={styles.button} type='submit'>Cadastrar</button>
             </form>
         </div>
+        <button className={styles.button2}><a className={styles.a} href='/'>Voltar</a></button></div>
     );
 }
