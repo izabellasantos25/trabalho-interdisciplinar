@@ -37,7 +37,7 @@ class Produto {
     try {
       const connect = await db.connect();
       const sql = "";
-      const values = [data.nome, data.titulo, data.dataCadastro, data.preco, data.descricao, data.imagem, id];
+      const values = [data.titulo, data.dataCadastro, data.preco, data.descricao, data.imagem, id];
       return await connect.query(sql, values);
     } catch (error) {
       console.error('Erro em update:', error);

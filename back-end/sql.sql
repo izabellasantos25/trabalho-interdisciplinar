@@ -2,8 +2,8 @@ CREATE TABLE produtos (
     id SERIAL PRIMARY KEY,
     titulo VARCHAR(255),
     dataCadastro DATE,
-    preco MONEY,
-    descricao TEXT,
+    preco FLOAT,
+    descricao VARCHAR(255),
     imagem VARCHAR(255)
 );
 

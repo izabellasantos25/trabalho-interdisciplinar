@@ -42,7 +42,7 @@ export default function Cadastro() {
                <div className={styles.h3}>Cadastre</div> 
 
                <div className={styles.voltar}>
-                <a href='/'>Voltar</a>
+                <a className={styles.a} href='/'>Voltar</a>
                </div>
 
                 <label className={styles.label} for="titulo">Título</label>
