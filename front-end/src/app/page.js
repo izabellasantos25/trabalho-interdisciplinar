@@ -2,7 +2,7 @@
 import styles from './page.module.css'
 
 export default async function Home() {
-  const req = await fetch("http://localhost:3003/produtos", {
+  const req = await fetch("http://localhost:3003/produto", {
     cache: "no-cache"
   });
 
@@ -19,7 +19,7 @@ export default async function Home() {
 
     <div className={styles.main}>
 
-      {produto.map((produto) => (
+      {produto.map(produto => (
 
         <div className={styles.group} key={produto.id}>
 

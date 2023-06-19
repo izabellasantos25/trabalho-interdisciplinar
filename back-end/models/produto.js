@@ -1,6 +1,6 @@
 const db = require("../db");
-class Produto {
 
+class Produto {
   static async select() {
     try {
       const connect = await db.connect();

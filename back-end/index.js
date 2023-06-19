@@ -40,7 +40,7 @@ app.post('/produtos', async function(req,res){
     res.status(500).json({ error: 'Ocorreu um erro ao buscar produtos' });  }
 })
 
-app.delete("/produto", async function (req, res) {
+app.delete('/produto', async function (req, res) {
   try {
     var produto = await Produto.delete(req.body.id);
     res.json(produto.rows);
