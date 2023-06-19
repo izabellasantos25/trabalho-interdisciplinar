@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import styles from '../page.module.css'
 import { useRouter } from 'next/navigation'
 
 export default function Cadastro() {
@@ -30,45 +29,41 @@ export default function Cadastro() {
     }
 
     return (
-        <div className={styles.body}>
-        <div className={styles.main}>
             <form  onSubmit={cadastrar}>
-                <input className={styles.input}
+                <input
                     type="text"
-                    placeholder='Titulo do Produto:'
+                    placeholder='titulo:'
                     nome="titulo"
                     onChange={e => setTitulo(e.target.value)}
                 />
-                <input className={styles.input}
+                <input
                     type="text"
-                    placeholder='Data do Cadastro:'
+                    placeholder='data de cadastro:'
                     nome="dataCadastro"
                     onChange={e => setDataCadastro(e.target.value)}
                 />
-                <input className={styles.input}
+                <input
                     type="text"
-                    placeholder='Preço do Produto:'
+                    placeholder='preço:'
                     nome="preco"
                     onChange={e => setPreco(e.target.value)}
                 />
 
-                <input className={styles.input}
+                <input
                     type="text"
-                    placeholder='Descrição do Produto:'
+                    placeholder='descrição:'
                     nome="descricao"
                     onChange={e => setDescricao(e.target.value)}
                 />
 
-                <input className={styles.input}
+                <input
                     type="text"
-                    placeholder='Link da Imagem:'
+                    placeholder='imagem:'
                     nome="imagem"
                     onChange={e => setImagem(e.target.value)}
                 />
-                <div className={styles.space}></div>
-                <button className={styles.button} type='submit'>Cadastrar</button>
+                <button type='submit'>Cadastrar</button>
+                <a href='/'>Voltar</a>
             </form>
-        </div>
-        <button className={styles.button2}><a className={styles.a} href='/'>Voltar</a></button></div>
     );
 }
