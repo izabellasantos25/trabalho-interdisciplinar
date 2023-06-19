@@ -31,10 +31,20 @@ export default async function Produto({ params }) {
         }
     }
     return (
-        <div>
-            <p>{produto.preco}</p>
-            <p>{produto.titulo}</p>
-            <button onClick={e => e.preventDefault(remover())}>REMOVER</button>
+        <div className={styles.body}>
+
+            <div className={styles.group}>
+
+              <div className={styles.card}>
+
+                <p>{produto.imagem}</p>
+                <p>{produto.titulo}</p>
+                <p>{produto.descricao}</p>
+                <button onClick={e => e.preventDefault(remover())}>Deletar</button>
+              
+              </div>
+
+            </div>
 
         </div>
 

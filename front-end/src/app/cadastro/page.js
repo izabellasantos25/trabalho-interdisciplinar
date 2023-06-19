@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import styles from '../page.module.css'
 import { useRouter } from 'next/navigation'
 
 export default function Cadastro() {
@@ -29,41 +30,40 @@ export default function Cadastro() {
     }
 
     return (
-            <form  onSubmit={cadastrar}>
-                <input
-                    type="text"
-                    placeholder='titulo:'
-                    nome="titulo"
-                    onChange={e => setTitulo(e.target.value)}
-                />
-                <input
-                    type="text"
-                    placeholder='data de cadastro:'
-                    nome="dataCadastro"
-                    onChange={e => setDataCadastro(e.target.value)}
-                />
-                <input
-                    type="text"
-                    placeholder='preço:'
-                    nome="preco"
-                    onChange={e => setPreco(e.target.value)}
-                />
+        <div className={styles.body}>
 
-                <input
-                    type="text"
-                    placeholder='descrição:'
-                    nome="descricao"
-                    onChange={e => setDescricao(e.target.value)}
-                />
+          <div className={styles.background}>
+            <div className={styles.circulo}></div>
+            <div className={styles.circulo}></div>
+          </div>
 
-                <input
-                    type="text"
-                    placeholder='imagem:'
-                    nome="imagem"
-                    onChange={e => setImagem(e.target.value)}
-                />
-                <button type='submit'>Cadastrar</button>
+            <form  className={styles.form} onSubmit={cadastrar}>
+
+               <div className={styles.h3}>Cadastre</div> 
+
+               <div className={styles.voltar}>
                 <a href='/'>Voltar</a>
+               </div>
+
+                <label className={styles.label} for="titulo">Título</label>
+                <input className={styles.input} type="text" placeholder='Informe o título' nome="titulo" onChange={e => setTitulo(e.target.value)} />
+ 
+                <label className={styles.label} for="dataCadastro">Data de cadastro</label>
+                <input className={styles.input} type="text" placeholder='00/00/0000' nome="dataCadastro" onChange={e => setDataCadastro(e.target.value)} />
+
+                <label className={styles.label} for="preco">Preço</label>
+                <input className={styles.input} type="text" placeholder='R$000,000.00' nome="preco" onChange={e => setPreco(e.target.value)} />
+
+                <label className={styles.label} for="descricao">Descrição</label>
+                <input className={styles.input} type="text" placeholder='Descrição do produto' nome="descricao" onChange={e => setDescricao(e.target.value)} />
+
+                <label className={styles.label} for="imagem">Link da imagem</label>
+                <input className={styles.input} type="text" placeholder='Link HTTPS' nome="imagem" onChange={e => setImagem(e.target.value)} />
+                
+                <button className={styles.botao} type='submit'>Cadastrar</button>
+
             </form>
+
+        </div>
     );
 }

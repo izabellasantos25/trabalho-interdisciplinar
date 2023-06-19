@@ -1,4 +1,5 @@
 "use client"
+import styles from './page.module.css'
 import Link from 'next/link';
 
 export default async function Home() {
@@ -7,18 +8,34 @@ export default async function Home() {
     cache: "no-cache"
   });
   const produto = await req.json();
+  console.log(produto)
 
   return (
-    <main> <Link href="/cadastro" className='voltar'> CADASTRAR </Link>
+
+    <div className={styles.body}> 
+
+    <div className={styles.menu}>
+    <Link href="/cadastro" className='voltar'> CADASTRAR </Link>
+    </div>
+
+    <div className={styles.main}>
 
       {produto.map(produto => (
-        <div key={produto.id}>
+
+        <div className={styles.group} key={produto.id}>
+
           <img src={produto.imagem}></img>
           <p>{produto.titulo}</p>
           <p>{produto.preco}</p>
           <Link href={`/produto/${produto.id}`}>Ver mais</Link>
+          
         </div>
+
       ))}
-    </main>
+
+    </div>
+
+    </div>
+
   )
 }
