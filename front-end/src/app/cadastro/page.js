@@ -31,7 +31,7 @@ export default function Cadastro() {
     }
 
     return (
-        <div className={styles.body}>
+        <div>
 
           <div className={styles.background}>
             <div className={styles.circulo}></div>
