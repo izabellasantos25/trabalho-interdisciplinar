@@ -12,15 +12,16 @@ export default function Cadastro() {
     const [imagem, setImagem] = useState();
 
     const cadastrar = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         
         const produto = {
             titulo: titulo,
             dataCadastro: dataCadastro,
             preco: preco,
             descricao: descricao,
-            imagem: imagem
-        }
+            imagem: imagem,
+        };
+
         const produtoJson = JSON.stringify(produto);
         fetch("http://localhost:3003/produto", {
             method: "POST",
@@ -45,19 +46,19 @@ export default function Cadastro() {
 
                </div> 
 
-                <label className={styles.label} for="titulo">Título</label>
+                <label className={styles.label} htmlFor="titulo">Título</label>
                 <input className={styles.input} type="text" placeholder='Informe o título' nome="titulo" onChange={e => setTitulo(e.target.value)} />
  
-                <label className={styles.label} for="dataCadastro">Data de cadastro</label>
+                <label className={styles.label} htmlFor="dataCadastro">Data de cadastro</label>
                 <input className={styles.input} type="text" placeholder='00/00/0000' nome="dataCadastro" onChange={e => setDataCadastro(e.target.value)} />
 
-                <label className={styles.label} for="preco">Preço</label>
+                <label className={styles.label} htmlFor="preco">Preço</label>
                 <input className={styles.input} type="text" placeholder='R$000,000.00' nome="preco" onChange={e => setPreco(e.target.value)} />
 
-                <label className={styles.label} for="descricao">Descrição</label>
+                <label className={styles.label} htmlFor="descricao">Descrição</label>
                 <input className={styles.input} type="text" placeholder='Descrição do produto' nome="descricao" onChange={e => setDescricao(e.target.value)} />
 
-                <label className={styles.label} for="imagem">Link da imagem</label>
+                <label className={styles.label} htmlFor="imagem">Link da imagem</label>
                 <input className={styles.input} type="text" placeholder='Link HTTPS' nome="imagem" onChange={e => setImagem(e.target.value)} />
                 
                 <button className={styles.botao} type='submit'>Cadastrar</button>

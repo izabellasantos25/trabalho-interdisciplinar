@@ -23,9 +23,9 @@ export default async function Home() {
 
         <div className={styles.group} key={produto.id}>
 
-          <img src={produto.imagem} width={300} height={450}></img>
+          <img src={produto.imagem} width={300} height={350}></img>
           <div className={styles.texto}>{produto.titulo}</div>
-          <div className={styles.texto}>{produto.preco}</div>
+          <div className={styles.texto}>R${produto.preco}</div>
           <a className={styles.link} href={`/produto/${produto.id}`}>Ver mais</a>
 
         </div>

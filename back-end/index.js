@@ -21,19 +21,20 @@ app.get('/produto', async function(req, res){
   }
 });
 
-app.post('/produto', async function(req, res){
+app.post('/produtos', async function(req, res){
   try {
-    var produtos = await Produto.selectOne(req.body.id);
-    res.json(produtos.rows[0]);
+    var produto = await Produto.selectOne(req.body.id);
+    res.json(produto.rows[0]);
   } catch (error) {
     console.error('Erro ao buscar produtos:', error);
     res.status(500).json({ error: 'Ocorreu um erro ao buscar produtos' });
   }
 });
 
-app.post('/produtos', async function(req,res){
+app.post('/produto', async function(req,res){
   try{
-    var produto = await Produto.insert(req.body);
+    var produto = req.body
+    var produto = await Produto.insert(produto);  
     res.json(produto.rows)
   }catch(error){
     console.error('Erro ao buscar produtos:', error);

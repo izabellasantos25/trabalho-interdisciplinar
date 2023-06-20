@@ -8,7 +8,7 @@ export default async function Produto({ params }) {
 
     const idJson = JSON.stringify(id);
 
-    const req = await fetch("http://localhost:3003/produto", {
+    const req = await fetch("http://localhost:3003/produtos", {
         method: "POST",
         cache: "no-cache",
         headers: { 'content-type': 'application/json' },
@@ -41,11 +41,11 @@ export default async function Produto({ params }) {
 
             <div className={styles.group2}>
 
-              <div className={styles.card}>
+              <div className={styles.card2}>
 
                 <img className={styles.imagem} src={produto.imagem} width={300} height={450}></img>
-                <div className={styles.texto}>{produto.titulo}</div>
-                <div className={styles.texto}>{produto.descricao}</div>
+                <div className={styles.texto2}>{produto.titulo}</div>
+                <div className={styles.texto2}>{produto.descricao}</div>
                 <button className={styles.botao2} onClick={e => e.preventDefault(remover())}>Deletar</button>
               
               </div>
